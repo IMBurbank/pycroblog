@@ -30,6 +30,7 @@ nosetests.xml
 # Translations
 *.mo
 
+.vscode
 venv
 app.db
 pycroblog.log*
