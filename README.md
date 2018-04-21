@@ -1,3 +1,3 @@
-# Welconme to Pycroblog
+# Welcome to Pycroblog
 
 A full-stack JS-Python-Flask microblog.
