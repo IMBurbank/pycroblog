@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "macros.j2" as macro %}
 
 {% block content %}
     <h1>Hello, {{ current_user.username }}!</h1>
@@ -8,9 +9,7 @@
         <p>
             {{ form.post.label }}<br>
             {{ form.post(cols=32, rows=4) }}<br>
-            {% for error in form.post.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
+            {{ macro.display_form_errors(form.post.errors) }}
         </p>
         <p>{{ form.submit() }}</p>
     </form>

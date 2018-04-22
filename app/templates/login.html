@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "macros.j2" as macro %}
 
 {% block content %}
   <h1>Sign In</h1>
@@ -7,19 +8,19 @@
     <p>
       {{ form.username.label }}<br>
       {{ form.username(size=32) }}<br>
-      {% for error in form.username.errors %}
-        <span style="color: red;">[{{ error }}]</span>
-      {% endfor %}
+      {{ macro.display_form_errors(form.username.errors) }}
     </p>
     <p>
       {{ form.password.label }}<br>
       {{ form.password(size=32) }}<br>
-      {% for error in form.password.errors %}
-      <span style="color: red;">[{{ error }}]</span>
-      {% endfor %}
+      {{ macro.display_form_errors(form.password.errors) }}
     </p>
     <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
     <p>{{ form.submit() }}</p>
+    <p>
+        Forgot Your Password? 
+        <a href="{{ url_for('reset_password_request') }}">Click to Reset</a>
+    </p>
   </form>
   <p>New User? <a href="{{ url_for('register')  }}">Register Here!</a></p>
 {% endblock content %}  
