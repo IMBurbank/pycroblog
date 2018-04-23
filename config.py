@@ -5,6 +5,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'default-secret-key'
+    MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -14,4 +15,5 @@ class Config(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['bassmanburbank@gmail.com']
-    POSTS_PER_PAGE = 3
+    POSTS_PER_PAGE = 10
+    LANGUAGES = ['en', 'es']
